@@ -11,3 +11,5 @@ fizzbuzz = fn
 end
 
 rembuzz = fn n -> fizzbuzz.(rem(n, 3), rem(n, 5), n) end
+
+prefix = fn s1 -> (fn s2 -> "#{s1} #{s2}" end) end
