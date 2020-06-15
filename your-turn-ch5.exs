@@ -13,3 +13,8 @@ end
 rembuzz = fn n -> fizzbuzz.(rem(n, 3), rem(n, 5), n) end
 
 prefix = fn s1 -> (fn s2 -> "#{s1} #{s2}" end) end
+
+# Enum.map [1,2,3,4], fn x -> x + 2 end
+Enum.map [1,2,3,4], &(&1 + 2)
+# Enum.each [1,2,3,4], fn x -> IO.inspect x end
+Enum.each [1,2,3,4], &(IO.inspect &1)
