@@ -28,7 +28,7 @@ defmodule Chop do
     next(actual, mid, lo, hi)
   end
 
-  def next(actual, mid, _, _) when actual == mid, do: actual
-  def next(actual, mid, lo, _) when actual < mid, do: guess(actual, lo..mid)
-  def next(actual, mid, _, hi) when actual > mid, do: guess(actual, mid..hi)
+  defp next(actual, mid, _, _) when actual == mid, do: actual
+  defp next(actual, mid, lo, _) when actual < mid, do: guess(actual, lo..mid)
+  defp next(actual, mid, _, hi) when actual > mid, do: guess(actual, mid..hi)
 end
