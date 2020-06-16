@@ -1,4 +1,4 @@
-defmodule Collections do
+defmodule MyList do
   def all?([], _), do: true
   def all?([head | tail], pred), do: pred.(head) && all?(tail, pred)
 
@@ -14,6 +14,21 @@ defmodule Collections do
     end
   end
 
-  # TODO
   def split([], _), do: {[], []}
+  def split(list, count) when count <= 0, do: {[], list}
+  def split([head | tail], count) do
+    {first, second} = split(tail, count - 1)
+    {[head | first], second}
+  end
+
+  def take(list, amount) when list == [] or amount == 0 , do: []
+  def take([head | tail], amount) do
+    [head | take(tail, amount - 1)]
+  end
+
+  def flatten([]), do: []
+  def flatten([head | tail]) do
+    flatten(head) ++ flatten(tail)
+  end
+  def flatten(head), do: [head]
 end
